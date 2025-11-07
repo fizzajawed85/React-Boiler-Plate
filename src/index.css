@@ -1,4 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* base theme variables for subtle blending */
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --muted: #374151;
+}
+.dark {
+  --bg: #071022;
+  --card: #071829;
+  --muted: #cbd5e1;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--muted);
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* small focus ring helper */
+.input-focus:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(6,182,212,0.08);
+}
+
+/* decorative hero gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(6,182,212,0.10), rgba(99,102,241,0.06));
+}

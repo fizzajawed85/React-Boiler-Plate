@@ -1,20 +1,10 @@
-import { useState } from "react";
-
-export default function Switch() {
-  const [enabled, setEnabled] = useState(false);
-
+import React, { useState } from "react";
+export default function Switch({ initial=false, onChange }) {
+  const [on, setOn] = useState(initial);
+  const toggle = () => { setOn(s=>!s); onChange && onChange(!on); };
   return (
-    <div
-      onClick={() => setEnabled(!enabled)}
-      className={`w-12 h-6 flex items-center rounded-full p-1 cursor-pointer transition ${
-        enabled ? "bg-blue-600" : "bg-gray-300"
-      }`}
-    >
-      <div
-        className={`bg-white w-5 h-5 rounded-full shadow-md transform duration-300 ${
-          enabled ? "translate-x-6" : "translate-x-0"
-        }`}
-      />
-    </div>
+    <button onClick={toggle} className={`w-12 h-6 rounded-full p-1 flex items-center transition ${on ? "bg-brand" : "bg-gray-300 dark:bg-gray-700"}`}>
+      <span className={`bg-white w-4 h-4 rounded-full shadow transform transition ${on ? "translate-x-6" : "translate-x-0"}`}></span>
+    </button>
   );
 }

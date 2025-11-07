@@ -1,12 +1,16 @@
-export default function Card({ title, description, icon, children }) {
+import React from "react";
+export default function Card({ title, subtitle, value, children, icon }) {
   return (
-    <div className="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition duration-300">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-lg font-semibold text-blue-600">{title}</h3>
-        {icon && <div className="text-2xl text-blue-500">{icon}</div>}
+    <div className="bg-white dark:bg-[#071022] rounded-2xl p-5 shadow-sm">
+      <div className="flex items-start justify-between">
+        <div>
+          {title && <div className="text-sm font-medium text-gray-600 dark:text-gray-300">{title}</div>}
+          {value && <div className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{value}</div>}
+          {subtitle && <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">{subtitle}</div>}
+        </div>
+        {icon && <div className="text-brand">{icon}</div>}
       </div>
-      {description && <p className="text-gray-600 mb-4">{description}</p>}
-      {children && <div>{children}</div>}
+      {children && <div className="mt-4">{children}</div>}
     </div>
   );
 }

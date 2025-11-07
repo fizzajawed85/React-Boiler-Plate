@@ -1,11 +1,9 @@
-export default function Input({ label, ...props }) {
+import React from "react";
+export default function Input({ label, className = "", ...props }) {
   return (
-    <div>
-      <label className="block text-gray-700 mb-1">{label}</label>
-      <input
-        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
-        {...props}
-      />
+    <div className={className}>
+      {label && <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">{label}</label>}
+      <input {...props} className="w-full px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#071829] text-gray-900 dark:text-white input-focus" />
     </div>
   );
 }
